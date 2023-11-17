@@ -1,0 +1,16 @@
+colorstops_mjt_distance_eclaires:
+  template:
+    type: colorstops
+    defaults:
+      - thegap: 1
+      - theFill: true
+      - theStroke: false
+  colorstops:
+    gap: '[[thegap]]'
+    fill: '[[theFill]]'
+    stroke: '[[theStroke]]'
+    colors:
+      0: 'red'
+      5: 'orange'
+      15: 'yellow'
+      20: 'green'

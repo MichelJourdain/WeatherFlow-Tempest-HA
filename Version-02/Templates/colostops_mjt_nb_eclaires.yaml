@@ -1,0 +1,16 @@
+colorstops_mjt_nb_eclaires:
+  template:
+    type: colorstops
+    defaults:
+      - thegap: 1
+      - theFill: true
+      - theStroke: false
+  colorstops:
+    gap: '[[thegap]]'
+    fill: '[[theFill]]'
+    stroke: '[[theStroke]]'
+    colors:
+      0: 'green'
+      200: 'yellow'
+      400: 'orange'
+      600: 'red'

@@ -1,0 +1,62 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+sensor: !include sensors.yaml
+switch: !include switchs.yaml
+light: !include lights.yaml
+zone: !include zones.yaml
+
+homeassistant:
+  customize: !include customize.yaml
+
+# Bluetooth
+bluetooth:
+
+frontend:
+  themes: !include_dir_merge_named themes    
+
+lovelace:
+  mode: storage
+  dashboards:
+
+    my-dashboard:
+      filename: My-Dashboard/My-Dashboard.yaml
+      icon: mdi:tablet-dashboard
+      title: My Dashboard
+      show_in_sidebar: true
+      mode: yaml
+      
+weather:
+
+  - platform: template
+    unique_id: "shawinigan-sud_daily"
+    name: tempest st 00032986 Shawinigan-sud daily
+    condition_template: "{{ states('sensor.wf_weather') }}"
+    temperature_template: "{{ states('sensor.tempest_st_00032986_temperature') | float}}"
+    humidity_template: "{{ states('sensor.tempest_st_00032986_humidity')| int }}"
+    pressure_template: "{{ states('sensor.tempest_st_00032986_sea_level_pressure')| float }}"
+    wind_speed_template: "{{ ( states('sensor.tempest_st_00032986_wind_speed_avg') | float * 18 / 5 ) | round(2) }}"
+    wind_bearing_template: "{{ states('sensor.tempest_st_00032986_wind_bearing_avg')| int }}"
+    visibility_template: "{{ states('sensor.tempest_st_00032986_visibility')| float }}"
+    forecast_template: "{{ state_attr('sensor.wf_weather', 'daily_forecast') }}"
+    
+  - platform: template
+    unique_id: "shawinigan-sud_hourly"
+    name: tempest st 00032986 Shawinigan-sud hourly
+    condition_template: "{{ states('sensor.wf_weather') }}"
+    temperature_template: "{{ states('sensor.tempest_st_00032986_temperature') | float}}"
+    humidity_template: "{{ states('sensor.tempest_st_00032986_humidity')| int }}"
+    pressure_template: "{{ states('sensor.tempest_st_00032986_sea_level_pressure')| float }}"
+    wind_speed_template: "{{ ( states('sensor.tempest_st_00032986_wind_speed_avg') | float * 18 / 5 ) | round(2) }}"
+    wind_bearing_template: "{{ states('sensor.tempest_st_00032986_wind_bearing_avg')| int }}"
+    visibility_template: "{{ states('sensor.tempest_st_00032986_visibility')| float }}"
+    forecast_template: "{{ state_attr('sensor.wf_weather', 'hourly_forecast') }}"
+

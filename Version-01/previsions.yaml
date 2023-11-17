@@ -1,0 +1,164 @@
+template:
+  - sensor:
+  
+# Conditions
+  
+    - name: 'def_previsions_condition_j0'
+      unique_id: 'def_previsions_ondition_j0'
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[0].condition }}"
+      
+    - name: 'def_previsions_condition_j1'
+      unique_id: 'def_previsions_condition_j1'
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[1].condition }}"
+  
+    - name: 'def_previsions_condition_j2'
+      unique_id: 'def_previsions_condition_j2'
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[2].condition }}"
+  
+    - name: 'def_previsions_condition_j3'
+      unique_id: 'def_previsions_condition_j3'
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[3].condition }}"
+  
+    - name: 'def_previsions_condition_j4'
+      unique_id: 'def_previsions_condition_j4'
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[4].condition }}"
+
+    - name: 'def_previsions_condition_j5'
+      unique_id: 'def_previsions_condition_j5'
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[5].condition }}"
+  
+# Temperature
+  
+    - name: 'def_previsions_temperature_j0'
+      unique_id: 'def_previsions_temperature_j0'
+      unit_of_measurement: "°C"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[0].temperature }}"
+      
+    - name: 'def_previsions_temperature_j1'
+      unique_id: 'def_previsions_temperature_j1'
+      unit_of_measurement: "°C"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[1].temperature }}"
+  
+    - name: 'def_previsions_temperature_j2'
+      unique_id: 'def_previsions_temperature_j2'
+      unit_of_measurement: "°C"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[2].temperature }}"
+  
+    - name: 'def_previsions_temperature_j3'
+      unique_id: 'def_previsions_temperature_j3'
+      unit_of_measurement: "°C"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[3].temperature }}"
+  
+    - name: 'def_previsions_temperature_j4'
+      unique_id: 'def_previsions_temperature_j4'
+      unit_of_measurement: "°C"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[4].temperature }}"
+
+    - name: 'def_previsions_temperature_j5'
+      unique_id: 'def_previsions_temperature_j5'
+      unit_of_measurement: "°C"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[5].temperature }}"
+      
+# Basse température      
+
+    - name: 'def_previsions_templow_j0'
+      unique_id: 'def_previsions_templow_j0'
+      unit_of_measurement: "°C"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[0].templow }}"
+      
+    - name: 'def_previsions_templow_j1'
+      unique_id: 'def_previsions_templow_j1'
+      unit_of_measurement: "°C"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[1].templow }}"
+  
+    - name: 'def_previsions_templow_j2'
+      unique_id: 'def_previsions_templow_j2'
+      unit_of_measurement: "°C"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[2].templow }}"
+  
+    - name: 'def_previsions_templow_j3'
+      unique_id: 'def_previsions_templow_j3'
+      unit_of_measurement: "°C"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[3].templow }}"
+  
+    - name: 'def_previsions_templow_j4'
+      unique_id: 'def_previsions_templow_j4'
+      unit_of_measurement: "°C"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[4].templow }}"
+
+    - name: 'def_previsions_templow_j5'
+      unique_id: 'def_previsions_templow_j5'
+      unit_of_measurement: "°C"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[5].templow }}"
+      
+# precipitation_probability      
+
+    - name: 'def_previsions_precipitation_probability_j0'
+      unique_id: 'def_previsions_precipitation_probability_j0'
+      unit_of_measurement: "%"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[0].precipitation_probability }}"
+      
+    - name: 'def_previsions_precipitation_probability_j1'
+      unique_id: 'def_previsions_precipitation_probability_j1'
+      unit_of_measurement: "%"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[1].precipitation_probability }}"
+  
+    - name: 'def_previsions_precipitation_probability_j2'
+      unique_id: 'def_previsions_precipitation_probability_j2'
+      unit_of_measurement: "%"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[2].precipitation_probability }}"
+  
+    - name: 'def_previsions_precipitation_probability_j3'
+      unique_id: 'def_previsions_precipitation_probability_j3'
+      unit_of_measurement: "%"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[3].precipitation_probability }}"
+  
+    - name: 'def_previsions_precipitation_probability_j4'
+      unique_id: 'def_previsions_precipitation_probability_j4'
+      unit_of_measurement: "%"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[4].precipitation_probability }}"
+
+    - name: 'def_previsions_precipitation_probability_j5'
+      unique_id: 'def_previsions_precipitation_probability_j5'
+      unit_of_measurement: "%"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[5].precipitation_probability }}"
+      
+# Precipitation
+
+    - name: 'def_previsions_precipitation_j0'
+      unique_id: 'def_previsions_precipitation_j0'
+      unit_of_measurement: "mm"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[0].precipitation }}"
+      
+    - name: 'def_previsions_precipitation_j1'
+      unique_id: 'def_previsions_precipitation_j1'
+      unit_of_measurement: "mm"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[1].precipitation }}"
+  
+    - name: 'def_previsions_precipitation_j2'
+      unique_id: 'def_previsions_precipitation_j2'
+      unit_of_measurement: "mm"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[2].precipitation }}"
+  
+    - name: 'def_previsions_precipitation_j3'
+      unique_id: 'def_previsions_precipitation_j3'
+      unit_of_measurement: "mm"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[3].precipitation }}"
+  
+    - name: 'def_previsions_precipitation_j4'
+      unique_id: 'def_previsions_precipitation_j4'
+      unit_of_measurement: "mm"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[4].precipitation }}"
+
+    - name: 'def_previsions_precipitation_j5'
+      unique_id: 'def_previsions_precipitation_j5'
+      unit_of_measurement: "mm"
+      state: "{{ state_attr('sensor.previsions_meteorologiques_journaliere', 'forecast')[5].precipitation_probability }}"
+      
+      
+      
+      
+      
+      
+      
+      

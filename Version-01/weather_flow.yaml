@@ -1,0 +1,181 @@
+sensor:
+
+  - platform: template
+    sensors:
+      weatherflow_nombre_eclaires_mois:
+        unique_id: "weatherflow_nombre_eclaires_mois"
+        friendly_name: "Weatherflow nombre d'éclaires pour le mois"
+        icon_template: mdi:weather-lightning   
+        value_template: "{{ state_attr('sensor.tempest_st_00032986_lightning_count_today', 'max_month') | round(0) }}"
+        
+  - platform: template
+    sensors:
+      minmax_temperature_max_jour:
+        unique_id: "minmax_temperature_max_jour"
+        unit_of_measurement: "°C"
+        friendly_name: "Weatherflow Temperature maximale pour aujourd'hui"
+        icon_template: mdi:text-box-outline 
+        value_template: "{{ state_attr('sensor.tempest_st_00032986_temperature', 'max_day') }}"
+        
+  - platform: template
+    sensors:
+      minmax_temperature_max_jour_heure_date:
+        unique_id: "minmax_temperature_max_jour_heure_date"
+        friendly_name: "Weatherflow heure et date de la Temperature maximale pour aujourd'hui"
+        icon_template: mdi:text-box-outline 
+        value_template: "{{ as_timestamp(state_attr('sensor.tempest_st_00032986_temperature', 'max_day_time')) | timestamp_custom('%d-%m-%Y %H:%M') }}"
+        
+  - platform: template
+    sensors:
+      minmax_temperature_min_jour:
+        unique_id: "minmax_temperature_min_jour"
+        unit_of_measurement: "°C"
+        friendly_name: "Weatherflow Temperature minimum pour Aujourd'hui"
+        icon_template: mdi:text-box-outline
+        value_template: "{{ state_attr('sensor.tempest_st_00032986_temperature', 'min_day') }}"      
+        
+  - platform: template
+    sensors:
+      minmax_temperature_min_jour_heure_date:
+        unique_id: "minmax_temperature_min_jour_heure_date"
+        friendly_name: "Weatherflow heure et date de la Temperature minimum pour aujourd'hui"
+        icon_template: mdi:text-box-outline 
+        value_template: "{{ as_timestamp(state_attr('sensor.tempest_st_00032986_temperature', 'min_day_time')) | timestamp_custom('%d-%m-%Y %H:%M') }}"
+        
+  - platform: template
+    sensors:
+      minmax_temperature_max_mois:
+        unique_id: "minmax_temperature_max_mois"
+        unit_of_measurement: "°C"
+        friendly_name: "Weatherflow Temperature maximale pour le mois"
+        icon_template: mdi:text-box-outline 
+        value_template: "{{ state_attr('sensor.tempest_st_00032986_temperature', 'max_month') }}"
+        
+  - platform: template
+    sensors:
+      minmax_temperature_max_mois_heure_date:
+        unique_id: "minmax_temperature_max_mois_heure_date"
+        friendly_name: "Weatherflow heure et date de la Temperature max mois"
+        icon_template: mdi:text-box-outline 
+        value_template: "{{ as_timestamp(state_attr('sensor.tempest_st_00032986_temperature', 'max_month_time')) | timestamp_custom('%d-%m-%Y %H:%M') }}"
+        
+  - platform: template
+    sensors:
+      minmax_temperature_min_mois:
+        unique_id: "minmax_temperature_min_mois"
+        unit_of_measurement: "°C"
+        friendly_name: "Weatherflow Temperature minimale pour le mois"
+        icon_template: mdi:text-box-outline
+        value_template: "{{ state_attr('sensor.tempest_st_00032986_temperature', 'min_month') }}"
+        
+  - platform: template
+    sensors:
+      minmax_temperature_min_mois_heure_date:
+        unique_id: "minmax_temperature_min_mois_heure_date"
+        friendly_name: "Weatherflow heure et date de la Temperature min mois"
+        icon_template: mdi:text-box-outline 
+        value_template: "{{ as_timestamp(state_attr('sensor.tempest_st_00032986_temperature', 'min_month_time')) | timestamp_custom('%d-%m-%Y %H:%M') }}"
+
+  - platform: template
+    sensors:
+      minmax_temperature_maximum:
+        unique_id: "minmax_temperature_maximum"
+        unit_of_measurement: "°C"
+        friendly_name: "Weatherflow Temperature maximale"
+        icon_template: mdi:text-box-outline 
+        value_template: "{{ state_attr('sensor.tempest_st_00032986_temperature', 'max_all') }}"
+        
+  - platform: template
+    sensors:
+      minmax_temperature_maximum_heure_date:
+        unique_id: "minmax_temperature_maximum_heure_date"
+        friendly_name: "Weatherflow heure et date de la Temperature maximum"
+        icon_template: mdi:text-box-outline 
+        value_template: "{{ as_timestamp(state_attr('sensor.tempest_st_00032986_temperature', 'max_all_time')) | timestamp_custom('%d-%m-%Y %H:%M') }}"
+        
+  - platform: template
+    sensors:
+      minmax_temperature_minimum:
+        unique_id: "minmax_temperature_minimum"
+        unit_of_measurement: "°C"
+        friendly_name: "Weatherflow Temperature minimale"
+        icon_template: mdi:text-box-outline
+        value_template: "{{ state_attr('sensor.tempest_st_00032986_temperature', 'min_all') }}"
+
+  - platform: template
+    sensors:
+      minmax_temperature_minimum_heure_date:
+        unique_id: "minmax_temperature_minimum_heure_date"
+        friendly_name: "Weatherflow heure et date de la Temperature minimum"
+        icon_template: mdi:text-box-outline 
+        value_template: "{{ as_timestamp(state_attr('sensor.tempest_st_00032986_temperature', 'min_all_time')) | timestamp_custom('%d-%m-%Y %H:%M') }}"
+        
+# Traduction des modes possible de la station tempest
+  - platform: template
+    sensors:
+      weatherflow_mode_descption:
+        unique_id: "weatherflow_mode_descption"
+        friendly_name: "Weatherflow Mode station météo tempest"
+        icon_template: mdi:tailwind    
+        value_template:  >
+          {% if states.sensor.tempest_st_00032986_battery_mode.state | int == 0 %}
+              Tous les capteurs sont activés et fonctionnant à pleine puissance.
+              Intervalle d'échantillonnage du vent toutes les 3 secondes
+          {% elif states.sensor.tempest_st_00032986_battery_mode.state | int == 1 %}
+              Intervalle d'échantillonnage du vent réglé sur 6 secondes.
+          {% elif states.sensor.tempest_st_00032986_battery_mode.state | int == 2 %}
+              Intervalle d'échantillonnage du vent réglé sur une minute.
+          {% elif states.sensor.tempest_st_00032986_battery_mode.state | int == 3 %}
+              Intervalle d'échantillonnage du vent réglé sur 5 minutes.
+              Intervalle d'échantillonnage de tous les autres capteurs réglé sur 5 minutes.
+              Le capteur de pluie haptique est désactivé de l'écoute active.
+          {% else %}
+              Indéterminé
+          {% endif %}
+
+template:
+
+# Données reçus de Tempest WeatherFlow
+
+# Obtenir les pévisions journalières
+          
+  - trigger:
+      - platform: time_pattern
+        hours: /1
+    action:
+      - service: weather.get_forecast
+        data:
+          type: daily
+        target:
+          entity_id: weather.forecast_shawinigan_sud
+        response_variable: previsionsjournalieres
+    sensor:
+      - name: Prévisions météorologiques journalières
+        unique_id: previsions_meteorologiques_journalieres
+        state: "{{ now().isoformat() }}"
+        icon: mdi:hours-24
+        attributes:
+          forecast: "{{ previsionsjournalieres.forecast }}"
+
+# Obtenir les pévisions horaires
+          
+  - trigger:
+      - platform: time_pattern
+        hours: /1
+    action:
+      - service: weather.get_forecast
+        data:
+          type: hourly
+        target:
+          entity_id: weather.forecast_shawinigan_sud
+        response_variable: previsionshoraires
+    sensor:
+      - name: Prévisions météorologiques horaires
+        unique_id: previsions_meteorologiques_horaires
+        state: "{{ now().isoformat() }}"
+        icon: mdi:hours-24
+        attributes:
+          forecast: "{{ previsionshoraires.forecast }}"
+          
+          
+          

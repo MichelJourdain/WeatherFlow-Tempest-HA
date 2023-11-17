@@ -1,0 +1,529 @@
+theme: MonTableau
+title: Weather
+path: vue-page-tests
+icon: mdi:test-tube
+type: panel
+badges: []
+cards:
+
+  - type: vertical-stack
+    cards:
+
+      - type: custom:tabbed-card
+        styles:
+          --mdc-theme-primary: yellow
+          --mdc-tab-text-label-color-default: lightblue
+        options: {}
+        tabs:
+        
+          - card:
+          
+             type: vertical-stack
+             cards:
+              
+              - type: horizontal-stack
+                cards:
+
+                  - type: custom:platinum-weather-card
+                    card_config_version: 8
+                    custom1_icon: mdi:lightning-bolt
+                    custom1_units: "Éclaires"
+                    custom1_value: sensor.tempest_st_00032986_lightning_count_today
+                    custom2_icon: mdi:road-variant
+                    custom2_units: Km
+                    custom2_value: sensor.tempest_st_00032986_lightning_distance
+                    custom3_icon: mdi:solar-power
+                    custom3_units: W/m^2
+                    custom3_value: sensor.tempest_st_00032986_solar_radiation
+                    custom4_icon: mdi:sun-compass
+                    custom4_units: lx
+                    custom4_value: sensor.tempest_st_00032986_illuminance
+                    daily_forecast_days: 5
+                    daily_forecast_layout: horizontal
+                    entity_apparent_temp: sensor.tempest_st_00032986_feels_like_temperature
+                    entity_extended: sensor.shawinigan_prevision
+                    entity_forecast_icon: weather.shawinigan
+                    entity_forecast_icon_1: sensor.def_previsions_condition_j1
+                    entity_forecast_max: sensor.minmax_temperature_max_jour
+                    entity_forecast_max_1: sensor.def_previsions_temperature_j1
+                    entity_forecast_min: sensor.minmax_temperature_min_jour
+                    entity_forecast_min_1: sensor.def_previsions_templow_j1
+                    entity_humidity: sensor.tempest_st_00032986_humidity
+                    entity_pop: sensor.shawinigan_probabilite_d_averses
+                    entity_pop_1: sensor.def_previsions_precipitation_probability_j1
+                    entity_pos: sensor.tempest_st_00032986_rain_rate
+                    entity_pos_1: sensor.def_previsions_precipitation_j1
+                    entity_pressure: sensor.netatmo_salon_pressure
+                    entity_rainfall: sensor.tempest_st_00032986_rain_today
+                    entity_summary_1: sensor.def_previsions_templow_j1
+                    entity_sun: sun.sun
+                    entity_temperature: sensor.tempest_st_00032986_temperature
+                    entity_uv_alert_summary: sensor.tempest_st_00032986_uv_index
+                    entity_wind_bearing: sensor.tempest_st_00032986_wind_bearing
+                    entity_wind_gust: sensor.tempest_st_00032986_wind_gust
+                    entity_wind_speed: sensor.tempest_st_00032986_wind_speed
+                    entity_update_time: sensor.shawinigan_observation_time
+                    extended_name_attr: friendly_name
+                    extended_use_attr: false
+                    option_color_fire_danger: false
+                    option_daily_color_fire_danger: false
+                    option_locale: fr
+                    option_pressure_decimals: 1
+                    option_show_overview_decimals: true
+                    option_show_overview_separator: true
+                    option_time_format: 24hour
+                    option_today_rainfall_decimals: true
+                    option_today_temperature_decimals: true
+                    option_tooltips: true
+                    overview_layout: complete
+                    section_order:
+                      - overview
+                      - extended
+                      - slots
+                      - daily_forecast
+                    show_section_extended: true
+                    slot_l1: forecast_max
+                    slot_l2: forecast_min
+                    slot_l3: wind
+                    slot_l4: pressure
+                    slot_l5: sun_next
+                    slot_l6: custom1
+                    slot_l7: custom3
+                    slot_l8: remove
+                    slot_r1: popforecast
+                    slot_r2: humidity
+                    slot_r3: uv_summary
+                    slot_r4: rainfall
+                    slot_r5: sun_following
+                    slot_r6: custom2
+                    slot_r7: custom4
+                    slot_r8: remove
+                    text_card_title: Shawinigan-Sud
+                    text_card_title_2: Météo
+                    text_update_time_prefix: À
+  
+                  - type: iframe
+                    url: 'https://embed.windy.com/embed2.html?lat=46.51357&lon=-72.73255&detailLat=46.51357&detailLon=-72.73255&width=650&height=650&zoom=8&level=surface&overlay=radar&product=radar&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"'
+                    aspect_ratio: 115%
+            
+          # ==============================================================================
+              - type: horizontal-stack
+                cards:
+
+                  - type: vertical-stack
+                    cards:
+            
+                      - type: custom:mushroom-template-card
+                        primary: "Jour- :{{states('sensor.minmax_temperature_min_jour') }} °C"
+                        secondary: "{{states('sensor.minmax_temperature_min_jour_heure_date')}}"
+                        fill_container: false
+                        multiline_secondary: true
+                        icon: mdi:arrow-collapse-down
+                        icon_color: green
+                        hold_action:
+                          action: none
+                        tap_action:
+                          action: none
+                        double_tap_action:
+                          action: none
+                  
+                      - type: custom:mushroom-template-card
+                        primary: "Jour+ :{{states('sensor.minmax_temperature_max_jour') }} °C"
+                        secondary: "{{states('sensor.minmax_temperature_max_jour_heure_date')}}"
+                        fill_container: false
+                        multiline_secondary: true
+                        icon: mdi:arrow-collapse-up
+                        icon_color: green
+                        hold_action:
+                          action: none
+                        tap_action:
+                          action: none
+                        double_tap_action:
+                          action: none
+                  
+                  - type: vertical-stack
+                    cards:
+
+                      - type: custom:mushroom-template-card
+                        primary: "Mois- :{{states('sensor.minmax_temperature_min_mois') }} °C"
+                        secondary: "{{states('sensor.minmax_temperature_min_mois_heure_date')}}"
+                        fill_container: false
+                        multiline_secondary: true
+                        icon: mdi:arrow-collapse-down
+                        icon_color: yellow
+                        hold_action:
+                          action: none
+                        tap_action:
+                          action: none
+                        double_tap_action:
+                          action: none
+
+                      - type: custom:mushroom-template-card
+                        primary: "Mois+ :{{states('sensor.minmax_temperature_max_mois') }} °C"
+                        secondary: "{{states('sensor.minmax_temperature_max_mois_heure_date')}}"
+                        fill_container: false
+                        multiline_secondary: true
+                        icon: mdi:arrow-collapse-up
+                        icon_color: yellow
+                        hold_action:
+                          action: none
+                        tap_action:
+                          action: none
+                        double_tap_action:
+                          action: none
+                  
+                  - type: vertical-stack
+                    cards:
+
+                      - type: custom:mushroom-template-card
+                        primary: "Min- :{{states('sensor.minmax_temperature_minimum') }} °C"
+                        secondary: "{{states('sensor.minmax_temperature_minimum_heure_date')}}"
+                        fill_container: false
+                        multiline_secondary: true
+                        icon: mdi:arrow-collapse-down
+                        icon_color: blue
+                        hold_action:
+                          action: none
+                        tap_action:
+                          action: none
+                        double_tap_action:
+                          action: none
+                  
+                      - type: custom:mushroom-template-card
+                        primary: "Max+ :{{states('sensor.minmax_temperature_maximum') }} °C"
+                        secondary: "{{states('sensor.minmax_temperature_maximum_heure_date')}}"
+                        fill_container: false
+                        multiline_secondary: true
+                        icon: mdi:arrow-collapse-up
+                        icon_color: blue
+                        hold_action:
+                          action: none
+                        tap_action:
+                          action: none
+                        double_tap_action:
+                          action: none
+
+            attributes:
+              icon: mdi:weather-partly-snowy-rainy
+              label: Météo
+
+          - card:
+          
+             type: horizontal-stack
+             cards:
+             
+               - type: vertical-stack
+                 cards:
+                  
+                    - type: custom:text-divider-row
+                      text: "Vent"
+                      align: center
+
+                    - type: custom:windrose-card
+                      data_period: 
+                        from_hour_of_day: 0
+                      max_width: 520
+                      refresh_interval: 300
+                      windspeed_bar_location: right
+                      windspeed_bar_full: true
+                      wind_direction_count: 20
+                      wind_direction_entity:
+                        entity: sensor.tempest_st_00032986_wind_bearing_avg
+                        direction_unit: degrees
+                        use_statistics: false
+                        direction_compensation: 0
+                      windspeed_entities:
+                        - entity: sensor.tempest_st_00032986_wind_speed
+                          name: Vent
+                          speed_unit: kph
+                          use_statistics: false
+                        - entity: sensor.tempest_st_00032986_wind_gust
+                          name: Rafales
+                          speed_unit: kph
+                          use_statistics: false
+                      speed_range_beaufort: false
+                      windrose_draw_north_offset: -40
+                      cardinal_direction_letters: NESO
+                      matching_strategy: direction-first
+                      center_calm_percentage: true
+                      output_speed_unit: kph
+                      colors:
+                        rose_percentages: 'red'
+                      speed_ranges:
+                        - from_value: 0
+                          color: '#00FFFF'
+                        - from_value: 5
+                          color: '#3CB371'
+                        - from_value: 10
+                          color: '#FFFF00'
+                        - from_value: 20
+                          color: '#FFA500'
+                        - from_value: 30
+                          color: '#FF0000'
+                          
+                    - type: custom:text-divider-row
+                      text: "États de la station"
+                      align: center
+                      
+                    - type: markdown
+                      content: |
+                        Voltage : {{ states('sensor.tempest_st_00032986_voltage') }}v -- État : {{ states('sensor.tempest_st_00032986_battery_mode') }}
+                        {{ states('sensor.weatherflow_mode_descption') }}
+                      card_mod:
+                        style: |
+                          ha-card {
+                            --card-mod-icon-color: #44739e;
+                            font-size: 1.1rem  !important;
+                            margin-top: -20px;
+                            margin-left: -3px;
+                            background: transparent;
+                          }
+
+                    - type: custom:apexcharts-card
+                      experimental:
+                        color_threshold: true
+                      show:
+                        last_updated: false
+                      header:
+                        standard_format: false
+                        show: true
+                        show_states: true
+                        colorize_states: true
+                        title: Pile
+                      graph_span: 12d
+                      apex_config:
+                        chart:
+                          height: 125px
+                      series:
+                        - entity: sensor.tempest_st_00032986_battery
+                          type: area
+                          group_by:
+                            func: last
+                            duration: 1d
+                          stroke_width: 5
+                          show:
+                            extremas: true
+                            header_color_threshold: true
+                            name_in_header: false
+                          color_threshold:
+                            - value: 0
+                              color: red
+                            - value: 20
+                              color: yellow
+                            - value: 40
+                              color: orange
+                            - value: 60
+                              color: steelblue
+                            - value: 80
+                              color: green
+
+               - type: vertical-stack
+                 cards:
+
+                    - type: custom:text-divider-row
+                      text: "Pression / Vent / Températures / Humidité"
+                      align: center
+                  
+                    - type: custom:stack-in-card
+                      mode: vertical
+                      keep:
+                        box_shadow: false
+                        margin: false
+                        border_radius: false
+                        background: false
+                        outer_padding: false
+                      cards:
+                        - type: custom:stack-in-card
+                          mode: horizontal
+                          cards:
+                            - type: vertical-stack
+                              cards:
+                                - type: custom:gap-card
+                                  height: 25
+                                - type: custom:tempometer-gauge-card
+                                  entity: sensor.tempest_st_00032986_station_pressure
+                                  title: Baromètre
+                                  icon_color: '#44739e'
+                                  min: 960
+                                  max: 1060
+                                  decimals: 0
+                                  severity:
+                                    red: 980
+                                    yellow: 1000
+                                    green: 1020
+                                  card_mod:
+                                    style: |
+                                      :host {
+                                        --paper-card-background-color: transparent;
+                                        --ha-card-border-radius: 0px;
+                                      }
+                                      .gauge-data #percent{
+                                        font-size: 1.8rem  !important;
+                                      }
+                                      .gauge-footer{
+                                        font-size: 1.4rem  !important;
+                                      }
+                                      .gauge-data #title {
+                                        font-size: 1rem  !important;
+                                      }
+                            - type: vertical-stack
+                              cards:
+                                - type: custom:compass-card
+                                  indicator_sensors:
+                                    - sensor: sensor.tempest_st_00032986_wind_bearing
+                                      indicator:
+                                        type: arrow_inward
+                                  header:
+                                    title:
+                                      value: VENT
+                                      color: '#44739e'
+                                  value_sensors:
+                                    - sensor: sensor.tempest_st_00032986_wind_speed
+                                  compass:
+                                    circle:
+                                      background_opacity: 0.3
+                                      background_image: \local\mes_images\windy-day.svg
+                                    east:
+                                      show: true
+                                    west:
+                                      show: true
+                                    south:
+                                      show: true
+                                    north:
+                                      show: true
+                                  language: fr
+                                  card_mod:
+                                    style: |
+                                      ha-card > div.header > div.name > span {
+                                        font-size: 14px;
+                                        font-weight: bold;
+                                      }
+                                      ha-card {
+                                        margin-top: -13px;
+                                      }
+
+                    - type: custom:vertical-stack-in-card
+                      cards:
+                                      
+                        - type: custom:text-divider-row
+                          text: "Données stations"
+                          align: center
+                      
+                        - type: horizontal-stack
+                          cards:
+                            - type: markdown
+                              content: >
+                                <center>Tempest <ha-icon
+                                icon="mdi:home-thermometer-outline"></ha-icon> {{
+                                states("sensor.tempest_st_00032986_temperature") |
+                                round(1)}}°C</center> <center>Netatmo <ha-icon
+                                icon="mdi:home-thermometer"></ha-icon> {{
+                                states("sensor.netatmo_thermopompe_temperature")
+                                | round(1)}}°C</center><center>Maison   <ha-icon
+                                icon="mdi:home-map-marker"></ha-icon> {{
+                                states("sensor.netatmo_salon_temperature")
+                                | round(1)}}°C</center>
+                              card_mod:
+                                style: |
+                                  ha-card {
+                                    --card-mod-icon-color: #44739e;
+                                    --mdc-icon-size: 28px;
+                                    font-size: 1.3rem  !important;
+                                    margin-top: -20px;
+                                    margin-left: -3px;
+                                    background: transparent;
+                                  }
+                            - type: markdown
+                              content: >
+                                <center><ha-icon icon="mdi:water-percent"></ha-icon> {{
+                                states("sensor.tempest_st_00032986_humidity") | round(0)
+                                }}%</center> <center><ha-icon
+                                icon="mdi:water-percent"></ha-icon> {{
+                                states("sensor.netatmo_thermopompe_humidity")
+                                | round(0) }}%</center><center><ha-icon
+                                icon="mdi:water-percent"></ha-icon> {{
+                                states("sensor.netatmo_salon_humidity")
+                                | round(0) }}%</center>
+                              card_mod:
+                                style: |
+                                  ha-card {
+                                    --card-mod-icon-color: #44739e;
+                                    --mdc-icon-size: 28px;
+                                    font-size: 1.3rem  !important;
+                                    margin-top: -20px;
+                                    margin-left: -18px;
+                                    background: transparent;
+                                  }    
+                                  
+                    - type: custom:vertical-stack-in-card
+                      cards:
+                                  
+                            - type: custom:text-divider-row
+                              text: "Capteurs / Milimètres de pluie / Indice UV"
+                              align: center
+
+                            - type: horizontal-stack
+                              cards:
+                                - type: custom:rain-gauge-card
+                                  language: fr
+                                  entity: sensor.tempest_st_00032986_rain_today
+                                  is_imperial: false
+                                  border_colour: '#44739e'
+                                  max_level: 60
+                                  show_warning: false
+                                  show_error: false
+                                  name: " "
+                                  hourly_rate_entity: sensor.tempest_st_00032986_rain_rate
+
+                                  card_mod:
+                                    style: |
+                                      #logo {
+                                        width: 70%;
+                                      }
+                                      ha-card {
+                                        margin: -35px 0px -5px 0px;
+                                        background: transparent;
+                                      }
+                                    
+                                - type: custom:uv-index-card
+                                  entity: sensor.tempest_st_00032986_uv_index
+                                  language: fr
+                                  show_warning: false
+                                  show_error: false
+                                  name: ' '
+                                  card_mod:
+                                    style: |
+                                      ha-card {
+                                        margin: -55px 0px -5px 0px;
+                                        background: transparent;
+                                      }
+                                      ha-card > div > div:nth-child(1) > svg {
+                                        width: 80%;
+                                        margin-top: 21px;
+                                      }
+                                    
+                    - type: custom:vertical-stack-in-card
+                      cards:
+                                   
+                       - type: custom:text-divider-row
+                         text: "Éclaires / Nombre aujourd'hui / Distances / Nombre dans le mois"
+                         align: center
+                              
+                       - type: glance
+                         show_name: true
+                         show_icon: true
+                         show_state: true
+                         entities:
+                           - entity: sensor.tempest_st_00032986_lightning_count_today
+                             name: "Aujourd'hui"
+                           - entity: sensor.tempest_st_00032986_lightning_distance
+                             name: "Distance"
+                           - entity: sensor.weatherflow_nombre_eclaires_mois
+                             name: "Mois"
+                             state_color: true
+
+            attributes:
+              icon: mdi:eye-plus-outline
+              label: Observations
+              
+
