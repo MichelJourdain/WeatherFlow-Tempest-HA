@@ -32,6 +32,6 @@ Don't get discouraged by all the steps to take. It's a little long and complicat
 
 ### Captures d'écran
 
-![image](https://github.com/MichelJourdain/WeatherflowTempest/assets/83040228/3ebb2c39-ef75-4294-9aa9-f5230b5bf7e4)
+![image](https://github.com/MichelJourdain/WeatherFlow-Tempest-HA/assets/83040228/0624aba5-262b-430e-94dd-81cb93e6cbfc)
 
-![image](https://github.com/MichelJourdain/WeatherflowTempest/assets/83040228/789b16e4-a6eb-4397-9b98-7b8333d2e908)
+![image](https://github.com/MichelJourdain/WeatherFlow-Tempest-HA/assets/83040228/b5a0a06a-b85b-4ab0-a246-c94356bf2aee)
