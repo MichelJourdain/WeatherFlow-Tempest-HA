@@ -27,6 +27,6 @@ Display the data of my Tempest station.
 
 ### Captures d'écran
 
-![image](https://github.com/MichelJourdain/WeatherFlowinHomeAssistant/assets/83040228/ffd17d84-2c99-4ef3-a10f-8d2b19aae8f4)
+![image](https://github.com/MichelJourdain/WeatherFlow-Tempest-HA/assets/83040228/2a6058de-3042-48a4-95e1-92bbb5252878)
 
-![image](https://github.com/MichelJourdain/WeatherFlowinHomeAssistant/assets/83040228/dce6b405-2d4d-47b1-90e0-b464b2d15cdd)
+![image](https://github.com/MichelJourdain/WeatherFlow-Tempest-HA/assets/83040228/14450f78-6145-4173-b33e-cf9fb3ca8879)
