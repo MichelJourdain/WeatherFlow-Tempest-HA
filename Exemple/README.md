@@ -11,7 +11,3 @@ Here is an example of a simple dashboard that works.
  
   ## Restarte Home Assistant
 
-![image](https://github.com/MichelJourdain/ExempleDashboard/assets/83040228/603e00ee-6929-47ff-a108-942fbab45ed5)
-
-
-![image](https://github.com/MichelJourdain/ExempleDashboard/assets/83040228/7efefd59-2143-49a7-99dc-7351ab4e1351)
