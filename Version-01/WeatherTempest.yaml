@@ -1,10 +1,3 @@
-theme: MonTableau
-title: Weather
-path: vue-page-tests
-icon: mdi:test-tube
-type: panel
-badges: []
-cards:
 
   - type: vertical-stack
     cards:
